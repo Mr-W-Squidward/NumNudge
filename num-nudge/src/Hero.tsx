@@ -1,5 +1,5 @@
 import React from 'react';
-import mathImage from './assets/mathImage.png';
+import mathImage from './assets/imgs/mathImage.png';
 
 const HeroSection: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
             mathematics? Maybe get a leg up on the next grade? NumNudge is here for you! We are dedicated to providing quality education 
             in a variety of fields. If you are interested, get in contact with us!
           </p>
-          <button className="bg-gold text-black py-2 px-6 rounded hover:bg-yellow-500">Sign Up</button>
+          <button className="bg-gold text-black py-2 px-6 rounded hover:bg-yellow-600">Sign Up</button>
         </div>
         <div className="md:w-1/2 p-4">
           <img src={mathImage} alt="Mathematics illustration" className="rounded-lg shadow-bold"/>

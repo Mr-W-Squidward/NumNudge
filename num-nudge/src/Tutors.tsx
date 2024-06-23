@@ -4,17 +4,12 @@ import TutorCard from "./TutorCard";
 const Tutors: React.FC = () => {
   const tutors = [
     {
-      image: '',
+      image: './assets/wajeeh.jpg',
       name: 'Wajeeh Alam',
       grade: 'Grade 11 - IB',
-      intro: 'Founder of NumNudge (Mathematics Tutor)'
-    },
-    {
-      image: 'idk',
-      name: 'idk',
-      grade: 'idk',
-      intro: 'idk'
-    },
+      intro: 'CEO/Founder',
+      blurb: 'I\'m Wajeeh! A dedicated programmer. I also teach math here and I created this site to appeal to those who need a cheap, reliable and fun tutor! I look forward to hearing your experience.'
+    }
   ];
 
   return (
@@ -28,6 +23,7 @@ const Tutors: React.FC = () => {
             name={tutor.name}
             grade={tutor.grade}
             intro={tutor.intro}
+            blurb={tutor.blurb}
           />
         ))}
       </div>

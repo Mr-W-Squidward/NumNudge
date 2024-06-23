@@ -3,6 +3,7 @@ import NavBar from './NavBar';
 import HeroSection from './Hero';
 import Curriculum from './Curriculum';
 import Tutors from './Tutors';
+import FAQSection from './FAQ';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <NavBar />
       <HeroSection />
       <Curriculum />
+      <FAQSection />
       <Tutors />
     </div>
   );
