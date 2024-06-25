@@ -8,7 +8,7 @@ interface CourseCardProps {
   route: string;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ title, description, price, route }) => {
+const CourseSignUpCard: React.FC<CourseCardProps> = ({ title, description, price, route }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-gray-800 p-6 text-white">
       <div className="font-bold text-xl mb-2">{title}</div>
@@ -23,4 +23,4 @@ const CourseCard: React.FC<CourseCardProps> = ({ title, description, price, rout
   );
 };
 
-export default CourseCard;
+export default CourseSignUpCard;

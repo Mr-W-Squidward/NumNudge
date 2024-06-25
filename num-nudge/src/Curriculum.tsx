@@ -5,17 +5,20 @@ const courses = [
   {
     title: 'Applications and Usages of Mathematics',
     description: 'This program serves a comprehensive introduction to the basics of mathematics including algebra, geometry, and trigonometry. We will cover common topics like equations, functions, and the applications of mathematics in various fields.',
-    price: '$22.5/hour'
+    price: '$22.50/hour',
+    route: '/sign-up/math'
   },
   {
     title: 'Computer Science Python',
     description: 'This program serves a comprehensive introduction to the basics of computer science through Python programming. We will cover common topics like loops, functions, data structures, and the principles of programming.',
-    price: '$22.5/hour'
+    price: '$22.50/hour',
+    route: '/sign-up/python'
   },
   {
     title: 'Web Development HTML, CSS, JavaScript',
     description: 'This program provides a comprehensive introduction to web development using HTML, CSS, and JavaScript. We will cover the basics of creating and styling web pages using HTML/CSS, along with dynamic content and interactivity with JavaScript.',
-    price: '$22.5/hour'
+    price: '$22.50/hour',
+    route: '/sign-up/web-dev'
   }
 ];
 
@@ -31,6 +34,7 @@ const Curriculum = () => {
             title={course.title}
             description={course.description}
             price={course.price}
+            route={course.route}
           />
         ))}
       </div>
