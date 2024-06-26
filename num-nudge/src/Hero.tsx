@@ -1,7 +1,11 @@
 import React from 'react';
 import mathImage from './assets/imgs/mathImage.png';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onSignUpClick: () => void; 
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ onSignUpClick }) => {
   return (
     <div className="flex items-center justify-center bg-black text-white py-20 px-8">
       <div className="flex flex-col md:flex-row items-center bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-6xl space-y-8 md:space-y-0 md:space-x-8">
@@ -12,7 +16,7 @@ const HeroSection: React.FC = () => {
             mathematics? Maybe get a leg up on the next grade? NumNudge is here for you! We are dedicated to providing quality education 
             in a variety of fields. If you are interested, get in contact with us!
           </p>
-          <button className="bg-gold text-black py-2 px-6 rounded hover:bg-yellow-600">Sign Up</button>
+          <button onClick={onSignUpClick} className="bg-gold text-black py-2 px-6 rounded hover:bg-yellow-600">Sign Up</button>
         </div>
         <div className="md:w-1/2 p-4">
           <img src={mathImage} alt="Mathematics illustration" className="rounded-lg shadow-bold"/>

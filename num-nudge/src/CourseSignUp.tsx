@@ -1,36 +1,69 @@
 import React, { useState } from 'react';
+import { useFormContext } from './FormContext';
 
-const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
-  const [studentName, setStudentName] = useState('');
-  const [parentName, setParentName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [age, setAge] = useState('');
-  const [experienceLevel, setExperienceLevel] = useState('');
-  const [questionsFeedback, setQuestionsFeedback] = useState('');
-  const [termsChecked, setTermsChecked] = useState(false);
+type CourseSignUpProps = {
+  courseName: string;
+  courseDescription: string;
+  courseInfo: string;
+};
+
+const CourseSignUp: React.FC<CourseSignUpProps> = ({
+  courseName,
+  courseDescription,
+  courseInfo,
+}) => {
+  const { formData, setFormData } = useFormContext();
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { id, value, type, checked } = e.target as HTMLInputElement & HTMLSelectElement & HTMLTextAreaElement;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!studentName || !parentName || !email || !phoneNumber || !age || !experienceLevel || !termsChecked) {
+    if (!formData.studentName || !formData.parentName || !formData.email || !formData.phoneNumber || !formData.age || !formData.experienceLevel || !formData.termsChecked) {
       alert('Please fill out all required fields and agree to terms.');
       return;
     }
 
-    // Simulate form submission (replace with actual logic)
-    alert('Form submitted successfully!'); // Remove this line when integrating with backend or desired action
+    if (formData.phoneNumber.length !== 10 || isNaN(Number(formData.phoneNumber))) {
+      alert('Please enter a valid 10-digit phone number.');
+      return;
+    }
 
-    setSubmitted(true);
-    setStudentName('');
-    setParentName('');
-    setEmail('');
-    setPhoneNumber('');
-    setAge('');
-    setExperienceLevel('');
-    setQuestionsFeedback('');
-    setTermsChecked(false);
+    try {
+      const response = await fetch('https://formspree.io/f/mnnaawkq', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          studentName: '',
+          parentName: '',
+          email: '',
+          phoneNumber: '',
+          age: '',
+          experienceLevel: '',
+          questionsFeedback: '',
+          termsChecked: false,
+        });
+      } else {
+        alert('There was an error submitting the form.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting the form.');
+    }
   };
 
   return (
@@ -47,8 +80,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <input
               type="text"
               id="studentName"
-              value={studentName}
-              onChange={(e) => setStudentName(e.target.value)}
+              value={formData.studentName}
+              onChange={handleChange}
               required
               className="w-full bg-gray-800 text-white rounded py-2 px-4"
             />
@@ -58,8 +91,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <input
               type="text"
               id="parentName"
-              value={parentName}
-              onChange={(e) => setParentName(e.target.value)}
+              value={formData.parentName}
+              onChange={handleChange}
               required
               className="w-full bg-gray-800 text-white rounded py-2 px-4"
             />
@@ -69,8 +102,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formData.email}
+              onChange={handleChange}
               required
               className="w-full bg-gray-800 text-white rounded py-2 px-4"
             />
@@ -80,8 +113,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <input
               type="tel"
               id="phoneNumber"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={formData.phoneNumber}
+              onChange={handleChange}
               required
               className="w-full bg-gray-800 text-white rounded py-2 px-4"
             />
@@ -91,8 +124,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <input
               type="number"
               id="age"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+              value={formData.age}
+              onChange={handleChange}
               required
               className="w-full bg-gray-800 text-white rounded py-2 px-4"
             />
@@ -101,8 +134,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <label htmlFor="experienceLevel" className="block text-white">Experience Level *</label>
             <select
               id="experienceLevel"
-              value={experienceLevel}
-              onChange={(e) => setExperienceLevel(e.target.value)}
+              value={formData.experienceLevel}
+              onChange={handleChange}
               required
               className="w-full bg-gray-800 text-white rounded py-2 px-4"
             >
@@ -116,8 +149,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <label htmlFor="questionsFeedback" className="block text-white">Questions & Feedback</label>
             <textarea
               id="questionsFeedback"
-              value={questionsFeedback}
-              onChange={(e) => setQuestionsFeedback(e.target.value)}
+              value={formData.questionsFeedback}
+              onChange={handleChange}
               rows={4}
               className="w-full bg-gray-800 text-white rounded py-2 px-4"
             />
@@ -126,8 +159,8 @@ const CourseSignUp = ({ courseName, courseDescription, courseInfo }) => {
             <input
               type="checkbox"
               id="termsChecked"
-              checked={termsChecked}
-              onChange={(e) => setTermsChecked(e.target.checked)}
+              checked={formData.termsChecked}
+              onChange={handleChange}
               className="mr-2"
             />
             <label htmlFor="termsChecked" className="text-white text-sm">I agree to the <a href="/terms-of-service" className="underline">Terms of Service</a> and <a href="/privacy-policy" className="underline">Privacy Policy</a>.</label>

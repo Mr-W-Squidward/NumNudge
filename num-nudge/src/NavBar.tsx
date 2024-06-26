@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  onSignUpClick: () => void;
+  onFAQClick: () => void;
+  onContactClick: () => void;
+  onTutorsClick: () => void;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ onSignUpClick, onFAQClick, onContactClick, onTutorsClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -9,14 +17,16 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className="bg-black text-gold py-4 px-8 flex justify-between items-center">
-      <div className="text-2xl font-bold">NumNudge</div>
+      <div className="text-2xl font-bold">
+        <Link to="/">NumNudge</Link>
+      </div>
       
       {/* Desktop Menu */}
       <div className={`hidden md:flex items-center space-x-4 ${isOpen ? 'hidden' : ''}`}>
-        <a href="#faq" className="py-2">FAQ</a>
-        <a href="#contact" className="py-2">Contact Us</a>
-        <a href="#meet" className="py-2">Meet The Tutors</a>
-        <button className="bg-gold text-black px-4 py-2 rounded">Sign up now!</button>
+        <button onClick={onFAQClick} className="py-2">FAQ</button>
+        <button onClick={onContactClick} className="py-2">Contact Us</button>
+        <button onClick={onTutorsClick} className="py-2">Meet The Tutors</button>
+        <button onClick={onSignUpClick} className="bg-gold text-black px-4 py-2 rounded">Sign up now!</button>
       </div>
       
       {/* Mobile Menu Button */}
@@ -41,10 +51,10 @@ const NavBar: React.FC = () => {
       
       {/* Mobile Menu */}
       <div className={`absolute top-16 left-0 w-full bg-black text-gold flex flex-col space-y-4 py-4 px-8 ${isOpen ? 'block' : 'hidden'} md:hidden`}>
-        <a href="#faq" className="py-2">FAQ</a>
-        <a href="#contact" className="py-2">Contact Us</a>
-        <a href="#meet" className="py-2">Meet The Tutors</a>
-        <button className="bg-gold text-black px-4 py-2 rounded">Sign up now!</button>
+        <button onClick={onFAQClick} className="py-2">FAQ</button>
+        <button onClick={onContactClick} className="py-2">Contact Us</button>
+        <button onClick={onTutorsClick} className="py-2">Meet The Tutors</button>
+        <button onClick={onSignUpClick} className="bg-gold text-black px-4 py-2 rounded">Sign up now!</button>
       </div>
     </nav>
   );
