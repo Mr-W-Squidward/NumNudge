@@ -14,11 +14,19 @@ const CourseSignUp: React.FC<CourseSignUpProps> = ({
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { id, value, type, checked } = e.target as HTMLInputElement & HTMLSelectElement & HTMLTextAreaElement;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: type === 'checkbox' ? checked : value,
-    }));
+    const { id, value, type } = e.target;
+    if (type === 'checkbox') {
+      const isChecked = (e.target as HTMLInputElement).checked;
+      setFormData((prevData) => ({
+        ...prevData,
+        [id]: isChecked,
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [id]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,6 +52,7 @@ const CourseSignUp: React.FC<CourseSignUpProps> = ({
       });
 
       if (response.ok) {
+        // Clear form data on successful submission
         setSubmitted(true);
         setFormData({
           studentName: '',
