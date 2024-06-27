@@ -15,7 +15,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ title, description, price, rout
       <p className="text-gray-300 text-base">{description}</p>
       <p className="text-gold text-lg mt-4">{price}</p>
       <Link to={route}>
-        <button className="mt-4 bg-gold text-black py-2 px-4 rounded-lg hover:bg-yellow-700">
+        <button className="mt-4 bg-gold text-black py-2 px-4 rounded-lg hover:bg-yellow-600 btn-hover">
           Sign Up
         </button>
       </Link>

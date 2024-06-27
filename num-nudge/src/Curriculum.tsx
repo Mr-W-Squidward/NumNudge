@@ -24,9 +24,8 @@ const courses = [
 
 const Curriculum = () => {
   return (
-    <div className="text-center p-8 bg-black min-h-screen">
+    <div className="text-center p-8 bg-black">
       <h2 className="text-3xl font-bold text-gold mb-8">Curriculum</h2>
-      
       <div className="flex flex-wrap justify-center gap-8">
         {courses.map((course, index) => (
           <CourseCard

@@ -37,20 +37,28 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       question: "When do the classes run?",
-      answer: "The class timing will be discussed with your tutor!",
+      answer: "The class timing will be discussed with your tutor! See what works best!",
     },
     {
       question: "Why should I choose this tutor over others?",
       answer: "Our wide variety of tutors ranging from grades 9-12 are currently going through and have experience with the current curriculum as well as how to socialize with others of their age, their training and abilities are second-to-none and they can deliver a top quality service.",
     },
     {
-      question: "What age range is taught?",
-      answer: "Any age range from elementary to high-school is taught, if any extra accommodations are needed we are happy to provide",
+      question: "What will my child do in these classes?",
+      answer: "They will participate in a wide variety of hands-on activities and problem solving questions which will build their thinking and analytical skills and prepare them to work and study on their own as well as excel in class!",
     },
+    {
+      question: "Is NumNudge virtual or in-person?",
+      answer: "For those living in Scarborough, in-person classes are offered but otherwise commute times for tutors grow too large so we do virtual classes in all other cases",
+    },
+    {
+      question: "Where can I ask more questions?",
+      answer: "Check-out the \"Contact Us\" section where we will answer any inquiry you have.",
+    }
   ];
 
   return (
-    <section className="bg-gray-800 py-12 px-4">
+    <section className="bg-gray-800 py-12 px-4 my-12">
       <h2 className="text-3xl font-bold text-center mb-8 text-gold">Frequently Asked Questions</h2>
       <div className="max-w-2xl mx-auto text-gold2">
         {faqs.map((faq, index) => (

@@ -4,7 +4,7 @@ import TutorCard from "./TutorCard";
 const Tutors: React.FC = () => {
   const tutors = [
     {
-      image: './assets/wajeeh.jpg',
+      image: '/src/assets/imgs/wajeeh.jpg',
       name: 'Wajeeh Alam',
       grade: 'Grade 11 - IB',
       intro: 'CEO/Founder',

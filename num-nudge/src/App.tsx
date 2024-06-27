@@ -10,6 +10,7 @@ import CourseSignUp from './CourseSignUp';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TOS';
 import { FormProvider } from './FormContext';
+import './index.css';
 
 const App: React.FC = () => {
   const signUpRef = useRef<HTMLDivElement>(null);

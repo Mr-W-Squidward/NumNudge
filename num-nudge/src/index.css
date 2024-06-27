@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+  @keyframes buttonHover {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    100% {
+      transform: scale(1.05) rotate(3deg);
+    }
+  }
+  .btn-hover:hover {
+    animation: buttonHover 0.3s forwards;
+  }
+}

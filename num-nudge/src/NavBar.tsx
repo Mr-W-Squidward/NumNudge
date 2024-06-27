@@ -16,13 +16,13 @@ const NavBar: React.FC<NavBarProps> = ({ onSignUpClick, onFAQClick, onContactCli
   };
 
   return (
-    <nav className="bg-black text-gold py-4 px-8 flex justify-between items-center">
+    <nav className="bg-black text-gold py-4 px-8 flex justify-between items-center relative">
       <div className="text-2xl font-bold">
         <Link to="/">NumNudge</Link>
       </div>
       
       {/* Desktop Menu */}
-      <div className={`hidden md:flex items-center space-x-4 ${isOpen ? 'hidden' : ''}`}>
+      <div className="hidden md:flex items-center space-x-4">
         <button onClick={onFAQClick} className="py-2">FAQ</button>
         <button onClick={onContactClick} className="py-2">Contact Us</button>
         <button onClick={onTutorsClick} className="py-2">Meet The Tutors</button>
@@ -50,7 +50,7 @@ const NavBar: React.FC<NavBarProps> = ({ onSignUpClick, onFAQClick, onContactCli
       </div>
       
       {/* Mobile Menu */}
-      <div className={`absolute top-16 left-0 w-full bg-black text-gold flex flex-col space-y-4 py-4 px-8 ${isOpen ? 'block' : 'hidden'} md:hidden`}>
+      <div className={`absolute top-full left-0 w-full bg-black text-gold flex flex-col space-y-4 py-4 px-8 ${isOpen ? 'block' : 'hidden'}`}>
         <button onClick={onFAQClick} className="py-2">FAQ</button>
         <button onClick={onContactClick} className="py-2">Contact Us</button>
         <button onClick={onTutorsClick} className="py-2">Meet The Tutors</button>
