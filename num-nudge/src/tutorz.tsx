@@ -14,7 +14,7 @@ const Tutors: React.FC = () => {
 
   return (
     <section className="bg-black text-gold py-12 px-4">
-      <h2 className="text-3xl font-bold text-center mb-8">Meet The Tutors</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">Meet Our Math & Programming Tutors</h2>
       <div className="flex flex-wrap justify-center">
         {tutors.map((tutor, index) => (
           <TutorCard

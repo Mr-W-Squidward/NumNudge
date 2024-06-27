@@ -59,7 +59,7 @@ const FAQSection: React.FC = () => {
 
   return (
     <section className="bg-gray-800 py-12 px-4 my-12">
-      <h2 className="text-3xl font-bold text-center mb-8 text-gold">Frequently Asked Questions</h2>
+      <h2 className="text-3xl font-bold text-center mb-8 text-gold">Tutor Program: Frequently Asked Questions</h2>
       <div className="max-w-2xl mx-auto text-gold2">
         {faqs.map((faq, index) => (
           <FAQComponent key={index} question={faq.question} answer={faq.answer} />

@@ -4,13 +4,11 @@ import { useFormContext } from './FormContext';
 type CourseSignUpProps = {
   courseName: string;
   courseDescription: string;
-  courseInfo: string;
 };
 
 const CourseSignUp: React.FC<CourseSignUpProps> = ({
   courseName,
   courseDescription,
-  courseInfo,
 }) => {
   const { formData, setFormData } = useFormContext();
   const [submitted, setSubmitted] = useState(false);
@@ -70,7 +68,6 @@ const CourseSignUp: React.FC<CourseSignUpProps> = ({
     <div className="max-w-2xl mx-auto py-12">
       <h2 className="text-3xl font-bold text-center mb-8 text-gold">{courseName}</h2>
       <p className="text-white text-center mb-8">{courseDescription}</p>
-      <p className="text-gray-300 text-center mb-8">{courseInfo}</p>
       {submitted ? (
         <p className="text-white text-center">Thank you for signing up!</p>
       ) : (

@@ -50,7 +50,7 @@ const NavBar: React.FC<NavBarProps> = ({ onSignUpClick, onFAQClick, onContactCli
       </div>
       
       {/* Mobile Menu */}
-      <div className={`absolute top-full left-0 w-full bg-black text-gold flex flex-col space-y-4 py-4 px-8 ${isOpen ? 'block' : 'hidden'}`}>
+      <div className={`absolute top-full left-0 w-full bg-black text-gold flex flex-col space-y-4 py-4 px-8 md:hidden ${isOpen ? 'block' : 'hidden'}`}>
         <button onClick={onFAQClick} className="py-2">FAQ</button>
         <button onClick={onContactClick} className="py-2">Contact Us</button>
         <button onClick={onTutorsClick} className="py-2">Meet The Tutors</button>
