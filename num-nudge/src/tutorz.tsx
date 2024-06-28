@@ -1,10 +1,11 @@
 import React from "react";
 import TutorCard from "./TutorCard";
+import wajeehImg from "/src/assets/imgs/wajeeh.jpg";
 
 const Tutors: React.FC = () => {
   const tutors = [
     {
-      image: '/src/assets/imgs/wajeeh.jpg',
+      image: wajeehImg,
       name: 'Wajeeh Alam',
       grade: 'Grade 11 - IB',
       intro: 'CEO/Founder',
