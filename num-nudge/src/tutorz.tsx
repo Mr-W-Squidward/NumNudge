@@ -1,6 +1,6 @@
 import React from "react";
 import TutorCard from "./TutorCard";
-import wajeehImg from "/src/assets/imgs/wajeeh.jpg";
+import wajeehImg from "/src/assets/imgs/wajeeh.png";
 
 const Tutors: React.FC = () => {
   const tutors = [
