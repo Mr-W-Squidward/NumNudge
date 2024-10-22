@@ -40,8 +40,8 @@ const Tutors: React.FC = () => {
       image: sazidimg,
       name: 'Sazid Malik',
       grade: 'Grade 12',
-      intro: 'Mathematics Tutor',
-      blurb: 'Hi, my name is Sazid Mallik, and I\'m one of your math tutors. I\'m passionate about math, but I also love exploring computer hardware, coding, and everything tech-related. Whether it\'s diving into the logic of circuits or solving complex algorithms, I\'m always eager to learn and share my knowledge. I\'m here to help you with your math journey, and I believe that with the right guidance, you can excel'
+      intro: 'Lead Mathematics Tutor',
+      blurb: 'Hi, my name is Sazid Mallik, and I\'m one of your math tutor leads. I\'m passionate about math, but I also love exploring computer hardware, coding, and everything tech-related. Whether it\'s diving into the logic of circuits or solving complex algorithms, I\'m always eager to learn and share my knowledge. I\'m here to help you with your math journey, and I believe that with the right guidance, you can excel'
     }
   ];
 
