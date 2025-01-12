@@ -48,19 +48,27 @@ const FAQSection: React.FC = () => {
       answer: "They will participate in a wide variety of hands-on activities and problem solving questions which will build their thinking and analytical skills and prepare them to work and study on their own as well as excel in class!",
     },
     {
+      question: "How can I be a tutor?",
+      answer: "If you have the knowledge, communication and aspiration to be a tutor, shoot me an email in the Contact Us section - if you demonstrate your qualifications through a certified exam in the subject after an interview stage, you can make it!",
+    },
+    {
       question: "Is NumNudge virtual or in-person?",
       answer: "For those living in Scarborough, in-person classes are offered but otherwise commute times for tutors grow too large so we do virtual classes in all other cases",
     },
     {
       question: "Where can I ask more questions?",
       answer: "Check-out the \"Contact Us\" section where we will answer any inquiry you have.",
-    }
+    },
+    {
+      question: "What if it's too expensive?",
+      answer: "Financial aid is available based on merit and need. Please contact us for more information! The first 4 classes are also free!",
+    },
   ];
 
   return (
     <section className="bg-gray-800 py-12 px-4 my-12">
       <h2 className="text-3xl font-bold text-center mb-8 text-gold">Tutor Program: Frequently Asked Questions</h2>
-      <div className="max-w-2xl mx-auto text-gold2">
+      <div className="max-w-3xl mx-auto text-gold2">
         {faqs.map((faq, index) => (
           <FAQComponent key={index} question={faq.question} answer={faq.answer} />
         ))}

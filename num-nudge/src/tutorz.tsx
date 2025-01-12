@@ -1,10 +1,13 @@
 import React from "react";
 import TutorCard from "./TutorCard";
-import wajeehimg from "/src/assets/imgs/wajeeh.png";
+import wajeehimg from "/src/assets/imgs/wajeehalam.png";
 import alifimg from "/src/assets/imgs/alif.png";
 import raiyanimg from "/src/assets/imgs/raiyan.png";
 import sazidimg from "/src/assets/imgs/sazid.png";
 import arminimg from "/src/assets/imgs/armin.png";
+import aangshimg from "/src/assets/imgs/aangsh.png";
+import mathuraimg from "/src/assets/imgs/mathura.png";
+import mahianimg from "/src/assets/imgs/mahian.png";
 
 const Tutors: React.FC = () => {
   const tutors = [
@@ -13,7 +16,7 @@ const Tutors: React.FC = () => {
       name: 'Wajeeh Alam',
       grade: 'Grade 11 - IB',
       intro: 'CEO/Founder',
-      blurb: 'I\'m Wajeeh! A dedicated programmer. I also teach math here and I created this site to appeal to those who need a cheap, reliable and fun tutor! I look forward to hearing your experience.'
+      blurb: 'I\'m Wajeeh! A dedicated programmer. I also am a coding instructor here and I created this site to appeal to those who need a cheap, reliable and fun tutor! I look forward to hearing your experience. Financial aid is available! Shoot me a message if you need help!'
     },
     {
       image: alifimg,
@@ -41,14 +44,42 @@ const Tutors: React.FC = () => {
       name: 'Sazid Malik',
       grade: 'Grade 12',
       intro: 'Lead Mathematics Tutor',
-      blurb: 'Hi, my name is Sazid Mallik, and I\'m one of your math tutor leads. I\'m passionate about math, but I also love exploring computer hardware, coding, and everything tech-related. Whether it\'s diving into the logic of circuits or solving complex algorithms, I\'m always eager to learn and share my knowledge. I\'m here to help you with your math journey, and I believe that with the right guidance, you can excel'
-    }
+      blurb: 'Hi, my name is Sazid Mallik, and I\'m one of your math tutor leads. I\'m passionate about math, but I also love exploring computer hardware, coding, and everything tech-related. Whether it\'s diving into the logic of circuits or solving complex algorithms, I\'m always eager to learn and share my knowledge.'
+    },
+    {
+      image: aangshimg,
+      name: 'Aangsh Arshyan',
+      grade: 'Grade 11',
+      intro: 'Mathematics Tutor',
+      blurb: 'Hey, I\'m Aangsh and I\'m one of your math tutors. I\'m great at teaching and with interpersonal skills so I\'m sure you\'ll learn to love learning with me!'
+    },
+    {
+      image: mahianimg,
+      name: 'Mathura Rai',
+      grade: 'Grade 12',
+      intro: 'Senior Science Tutor',
+      blurb: 'I am just a girl!'
+    },
+    {
+      image: mahianimg,
+      name: 'Mahian Rahaman',
+      grade: 'Grade 10',
+      intro: 'Junior Math/Science Tutor',
+      blurb: 'Hey, my name\'s Mahian and I\'m one of the Math Tutors for NumNudge. Contact me for class times. Hope you have fun learning with me!!'
+    },
+    {
+      image: mahianimg,
+      name: 'Nahian Ibrahim',
+      grade: 'Grade 12',
+      intro: 'Calculus Tutor',
+      blurb: 'As a vivid...'
+    },
   ];
 
   return (
     <section className="bg-black text-gold py-12 px-4">
       <h2 className="text-3xl font-bold text-center mb-8">Meet Our Math & Programming Tutors</h2>
-      <div className="flex flex-wrap justify-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {tutors.map((tutor, index) => (
           <TutorCard
             key={index}
