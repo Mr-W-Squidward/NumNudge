@@ -8,6 +8,7 @@ import arminimg from "/src/assets/imgs/armin.png";
 import aangshimg from "/src/assets/imgs/aangsh.png";
 import mathuraimg from "/src/assets/imgs/mathura.png";
 import mahianimg from "/src/assets/imgs/mahian.png";
+import nahianimg from "/src/assets/imgs/nahian.png";
 
 const Tutors: React.FC = () => {
   const tutors = [
@@ -54,32 +55,32 @@ const Tutors: React.FC = () => {
       blurb: 'Hey, I\'m Aangsh and I\'m one of your math tutors. I\'m great at teaching and with interpersonal skills so I\'m sure you\'ll learn to love learning with me!'
     },
     {
-      image: mahianimg,
+      image: mathuraimg,
       name: 'Mathura Rai',
       grade: 'Grade 12',
       intro: 'Senior Science Tutor',
-      blurb: 'I am just a girl!'
+      blurb: 'Here to represent the top tier tutors, I\'m Mathura! I love teaching the sciences and have had top-notch grades in all my science courses. I\'m here to guide and help you so you can achieve the same success!'
     },
     {
       image: mahianimg,
       name: 'Mahian Rahaman',
       grade: 'Grade 10',
       intro: 'Junior Math/Science Tutor',
-      blurb: 'Hey, my name\'s Mahian and I\'m one of the Math Tutors for NumNudge. Contact me for class times. Hope you have fun learning with me!!'
+      blurb: 'Hey, my name\'s Mahian and I\'m one of the Math Tutors for NumNudge. I have a lot of experience with being a peer tutor in school so I\'m ready to teach! Contact me for class times. Hope you have fun learning with me!!'
     },
     {
-      image: mahianimg,
+      image: nahianimg,
       name: 'Nahian Ibrahim',
       grade: 'Grade 12',
       intro: 'Calculus Tutor',
-      blurb: 'As a vivid...'
+      blurb: 'I\'ve been an effort-intensive student from a young age and hope to create good study habits and success for all my students. I have experience in many AP courses such as Physics, Chemistry and Calculus. I\'ll do my best to impart all that I\'ve learned and while I have a plethora of subjects to teach, my expertise lies in Calculus and Vectors. From limits all the way to integration you can come to me to ensure your success in high school.'
     },
   ];
 
   return (
     <section className="bg-black text-gold py-12 px-4">
       <h2 className="text-3xl font-bold text-center mb-8">Meet Our Math & Programming Tutors</h2>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pl-10">
         {tutors.map((tutor, index) => (
           <TutorCard
             key={index}
