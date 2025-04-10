@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 interface NavBarProps {
   onSignUpClick: () => void;
@@ -10,9 +10,16 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ onSignUpClick, onFAQClick, onContactClick, onTutorsClick }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const goToSection = (section: string) => {
+    if (location.pathname !== '/') {
+      window.dispatchEvent(new CustomEvent('scroll-to-section', { detail: section }));
+    } else {
+      window.location.href = `/?scrollTo=${section}`;
+    } 
   };
 
   const handleClick = (callback: () => void) => {
@@ -28,10 +35,16 @@ const NavBar: React.FC<NavBarProps> = ({ onSignUpClick, onFAQClick, onContactCli
       
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center space-x-4">
-        <button onClick={onFAQClick} className="py-2">FAQ</button>
-        <button onClick={onContactClick} className="py-2">Contact Us</button>
-        <button onClick={onTutorsClick} className="py-2">Meet The Tutors</button>
-        <button onClick={onSignUpClick} className="bg-gold text-black px-4 py-2 rounded">Sign up now!</button>
+        <button onClick={() => goToSection('faq')} className="py-2">FAQ</button>
+        <button onClick={() => goToSection('contact')} className="py-2">Contact Us</button>
+        <button onClick={() => goToSection('tutors')} className="py-2">Meet The Tutors</button>
+        <Link to="/whiteboard" className="py-2">Whiteboard</Link>
+        <button // Sign up button (just longer)
+          onClick={() => goToSection('signup')}
+          className="bg-gold text-black px-4 py-2 rounded"
+        >
+          Sign up now!
+        </button>
       </div>
       
       {/* Mobile Menu Button */}
@@ -60,10 +73,19 @@ const NavBar: React.FC<NavBarProps> = ({ onSignUpClick, onFAQClick, onContactCli
           isOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <button onClick={() => handleClick(onFAQClick)} className="py-2">FAQ</button>
-        <button onClick={() => handleClick(onContactClick)} className="py-2">Contact Us</button>
-        <button onClick={() => handleClick(onTutorsClick)} className="py-2">Meet The Tutors</button>
-        <button onClick={() => handleClick(onSignUpClick)} className="bg-gold text-black px-4 py-2 rounded">Sign up now!</button>
+        <button onClick={() => goToSection('faq')} className="py-2">FAQ</button>
+        <button onClick={() => goToSection('contact')} className="py-2">Contact Us</button>
+        <button onClick={() => goToSection('tutors')} className="py-2">Meet The Tutors</button>
+        <Link to="/whiteboard" onClick={toggleMenu} className="py-2">Whiteboard</Link>
+        <button // Sign up button (just longer)
+          onClick={() => {
+            toggleMenu();
+            setTimeout(() => goToSection('signup'), 300);
+          }}
+          className="bg-gold text-black px-4 py-2 rounded"
+        >
+          Sign up now!
+        </button>
       </div>
     </nav>
   );

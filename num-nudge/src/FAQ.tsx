@@ -61,7 +61,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "What if it's too expensive?",
-      answer: "Financial aid is available based on merit and need. Please contact us for more information! The first 4 classes are also free!",
+      answer: "Financial aid is available based on need. They are evaluated case-by-case, so please contact us for more information! The first 4 classes are also free!",
     },
   ];
 
